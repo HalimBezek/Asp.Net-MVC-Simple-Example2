@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Referanslarımız";
+    //layouta gönderiliyor
+    ViewBag.PageTitle = "Referanslarımız";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ 
+    var sabit_icerik = (Gsis.Models.ICERIK)ViewBag.sabit_icerik;
+    
+ }
+
+
+ 
+<div id="page-header" class="style-2">
+    <div class="container" >
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Referanslar</h4>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb">
+                    <li><a href="/">Ana Sayfa</a></li>
+                    <li class="active">Referanslar</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*@Html.Raw(sabit_icerik.ICERIK1)*@
+
+
+
+<div class="container" style="min-height:400px;">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="isotope col-4 gutter">
+                <ul id="gallery" class="portfolio-grid clearfix">
+                    @{
+                        var referanslar = (IQueryable<Gsis.Models.REFERANSLAR>)ViewBag.referanslar;
+
+                        if (referanslar.Count() > 0)
+                        {
+                            foreach (var item in referanslar)
+                            {
+
+                                <div class="isotope-item">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-item-thumbnail">
+                                            <img src="/Content/img/referanslar/@item.RESIM" alt="">
+                                            <div class="portfolio-item-hover">
+                                                <a class="fancybox-portfolio-gallery zoom-action" href="/Content/img/referanslar/@item.RESIM"><i class="mt-icons-expand3"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="portfolio-item-details" style="text-align:center;">
+                                            <p>
+                                                @item.BASLIK
+                                            <p>
+
+                                                <h4><a href="#">@item.ACIKLAMA</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger">Ekli Referans Bulunamadı !</div>
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+           
+         
+
+

@@ -1,0 +1,154 @@
+/*
+ *
+ *		STYLE-SWITCHER.CSS
+ *
+ *	+ PANEL STYLE
+ *	+ COLORS
+ *
+ */
+ 
+/***********************************************************************************
+ *	+ PANEL STYLE
+ ***********************************************************************************/
+
+	#style-switcher {
+		padding: 0 20px;
+		z-index: 2000;
+		background-color: #fff;
+		position: fixed;
+		top: 192px;
+		left: -250px;
+		width: 250px;
+		color: #323232;
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+				box-sizing: border-box;
+		-webkit-transition: all 0.5s;
+				transition: all 0.5s;
+	}
+	
+	#style-switcher.open {
+		left: 0;
+		box-shadow: 3px 3px 5px 0 #ccc;
+	}
+	
+	#style-switcher a {
+		text-decoration: none;
+		color: #323232;
+	}
+	
+	#style-switcher > a {
+		position: absolute;
+		top: 0;
+		right: -60px;
+		display: block;
+		background-color: #323232;
+		color: #fff;
+		font-size: 25px;
+		text-align: center;
+		text-decoration: none;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+	}
+	
+	#style-switcher > a:before {
+		font-family: "mt-icons";
+		content: "\e647";
+	}
+	
+	#style-switcher h4 {
+		text-transform: uppercase;
+		text-align: center;
+		color: #fff;
+		background-color: #323232;
+		padding: 8px 0;
+		margin: 0 -20px;
+		font-weight: 700;
+	}
+	
+	#style-switcher h5 {
+		text-transform: uppercase;
+		margin-bottom: 10px;
+		color: #000;
+		font-weight: 700;
+	}
+	
+	.colors {
+		padding-bottom: 15px;
+		margin-bottom: 10px;
+	}
+	
+	.colors a {
+		position: relative;
+		display: block;
+		width: 30px;
+		height: 30px;
+		float: left;
+		margin: 10px 10px 10px 0;
+		-webkit-transition: box-shadow 0.3s;
+				transition: box-shadow 0.3s;
+	}
+	
+	.colors a:last-child {
+		margin-right: 0;
+	}
+
+/***********************************************************************************
+ *	+ COLORS
+ ***********************************************************************************/
+
+	#default:after,
+	#default:before,
+	#color1:after,
+	#color1:before,	
+	#color2:after,
+	#color2:before {
+		position: absolute;
+		width: 0; 
+		height: 0; 
+		content: "";
+		-moz-transform: scale(0.9999);
+	}
+	
+	#default:before {
+		top: 0;
+		left: 0;
+		border-top: 30px solid #a8e12a; 
+		border-right: 30px solid transparent;
+	}
+	
+	#default:after {
+		bottom: 0;
+		right: 0;
+		border-bottom: 30px solid #0bbff2; 
+		border-left: 30px solid transparent;
+	}
+	
+	#color1:before {
+		bottom: 0;
+		right: 0;
+		border-bottom: 30px solid #ffc72c; 
+		border-left: 30px solid transparent;
+	}
+	
+	#color1:after {
+		top: 0;
+		left: 0;
+		border-top: 30px solid #e72a7a; 
+		border-right: 30px solid transparent;
+	}
+	
+	#color2:before {
+		top: 0;
+		left: 0;
+		border-top: 30px solid #a7e12a; 
+		border-right: 30px solid transparent;
+	}
+	
+	#color2:after {
+		bottom: 0;
+		right: 0;
+		border-bottom: 30px solid #8f35ca; 
+		border-left: 30px solid transparent;
+	}

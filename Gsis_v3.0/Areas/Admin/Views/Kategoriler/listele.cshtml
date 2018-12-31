@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "listele";
+    Layout = "~/Areas/Admin/Views/_LayoutPage.cshtml";
+}
+
+
+
+<div class="col-md-10 content-wrapper">
+    <div class="row">
+        <div class="col-lg-4 ">
+            <ul class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="#">Ana Sayfa</a></li>
+                <li><a href="#">Sayfalar</a></li>
+                <li class="active">Düzenle</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="main-content">
+
+            <div class="row">
+                <div class="gallery-buttons bottom-30px">
+                    <a href="/Admin/kategoriler/ekle" type="button" class="btn btn-primary btn-md"> <i class="fa fa-picture-o"></i> Yeni Kategori</a>
+                </div>
+                   <div class="widget widget-table">
+                       <div class="widget-header"><h3><i class="fa fa-table"></i>Kategoriler</h3>
+                       </div>
+                       <div class="widget-content">
+
+                           <table class="table table-bordered">
+                               <thead>
+                                   <tr>
+                                       <th width="30">#</th>
+                                       <th>Kategori</th>
+                                       <th>Sıra No</th>
+                                       <th width="180">İşlem</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+
+                                   @{
+                                       var kategoriler = (IQueryable<Gsis.Models.KATEGORILER>)ViewBag.kategoriler;
+
+                                       foreach (var item in kategoriler)
+                                        {
+                                           <tr>
+                                               <td>@item.ID</td>
+
+                                               @if (item.UST_KATEGORI_ID == 0)              // UST_KATEGORI_ID   0 ise   Ana Kategoridir ! 
+                                               {
+                                                    <td>@item.KATEGORI_ADI</td>         
+                                               }
+                                               else                                        // UST_KATEGORI_ID   0 değilse    Alt Kategoridir !     
+                                               {
+                                                    <td>@kategoriler.Where(f=>f.ID == item.UST_KATEGORI_ID).First().KATEGORI_ADI >  @item.KATEGORI_ADI</td>
+                                               }
+
+                                               <td>@item.SIRA_NO</td>
+                                               
+                                               <td>
+                                                   <a href="/Admin/kategoriler/duzenle?id=@item.ID" class="btn btn-primary btn-xs">Düzenle</a>
+
+                                                   @if (item.DURUM == true)                      // Aktif Pasif İşlemleri
+                                                    {
+                                                        <a href="/Admin/kategoriler/durum?id=@item.ID&durum=False" class="btn btn-success btn-xs">Pasif Et</a>
+                                                    }
+                                                                                                       else
+                                                                                                       {
+                                                                                                        <a href="/Admin/kategoriler/durum?id=@item.ID&durum=True" class="btn btn-danger btn-xs">Aktif Et</a>
+                                                                                                       }
+                                                                                                
+
+                                                   
+                                                                                                       @if (item.SILME_IZNI == true)                   // Silme İzni Yok İse  Sabit Kategorilerdendir  örn : Galeri , Hizmetlerimiz
+                                                    {
+                                                        <a href="/Admin/kategoriler/sil?id=@item.ID" class="btn btn-warning btn-xs">Sil</a>
+                                                    }
+                                                    else
+                                                    {
+
+                                                    }
+                                                  
+                                               </td>
+                                           </tr>
+                                       }
+                                    }
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+
+            </div>
+        </div>
+    </div>
+</div>

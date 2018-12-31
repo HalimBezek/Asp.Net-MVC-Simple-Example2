@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "ekle";
+    Layout = "~/Areas/Admin/Views/_LayoutPage.cshtml";
+}
+
+
+ 
+
+                    <div class="col-md-10 content-wrapper">
+                        <div class="row">
+                            <div class="col-lg-4 ">
+                                <ul class="breadcrumb">
+                                    <li><i class="fa fa-home"></i><a href="#">Ana Sayfa</a></li>
+                                    <li><a href="#">Manşet Resimleri</a></li>
+                                    <li class="active">Yeni Ekle</li>
+                                </ul>
+                            </div>
+                        
+                        </div>
+
+               
+                        <div class="content">
+                            <div class="main-header">
+                                <h2>Manşet Resmi Ekle</h2>
+                                <em>Ana Sayfa Manşet Resimleri</em>
+                            </div>
+
+                            <div class="main-content">
+                                <div class="row">
+                                 
+                                    <div class="col-md-12">
+                                    
+                                        <div class="widget">
+                                            <div class="widget-header"><h3><i class="fa fa-edit"></i>Manşet Ekle</h3></div>
+                                            <div class="widget-content">
+                                                <form class="form-horizontal label-left" method="post" action="/Admin/manset/ekle" enctype="multipart/form-data" role="form">
+                                                    <div class="form-group">
+                                                        <label for="phone" class="col-sm-2 control-label">Resim Seç <br /></label>
+                                                        <div class="col-sm-7">
+                                                            <input type="file" id="resim" name="resim" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="phone-ex" class="col-sm-2 control-label">Başlık <br /></label>
+                                                        <div class="col-sm-7">
+                                                            <input type="text" id="baslik" name="baslik" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="tax-id" class="col-sm-2 control-label">Açıklama<br /></label>
+                                                        <div class="col-sm-7">
+                                                            <input type="text" id="aciklama" name="aciklama" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="ssn" class="col-sm-2 control-label">Link<br /></label>
+                                                        <div class="col-sm-7">
+                                                            <input type="text" id="link" name="link" value="#" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="ssn" class="col-sm-2 control-label">Sıra No<br /></label>
+                                                        <div class="col-sm-7">
+                                                            <input type="text" id="sira_no" name="sira_no" value="0" class="form-control">
+                                                            Rakam Girin!
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="ssn" class="col-sm-2 control-label"><br /></label>
+                                                        <div class="col-sm-7">
+                                                            <button type="submit" class="btn btn-primary">Ekle</button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                             
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+      
+  

@@ -1,0 +1,261 @@
+﻿
+@{
+    ViewBag.Title = "Ana Sayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var sabit_icerik = (Gsis.Models.ICERIK)ViewBag.sabit_icerik;
+    
+ }
+
+
+<div class="owl-carousel main-slider">
+
+
+    @{
+        var Manset = (IQueryable<Gsis.Models.MANSET>)ViewBag.Manset;
+
+        if (Manset.Count() > 0)
+        {
+        
+                            foreach (var item in Manset)
+                            {
+                                  <div class="full-screen" style="background-image: url(/Content/img/manset/@item.RESIM)">
+                                        <div class="container">
+                                            <div class="row">
+
+
+
+                                            @if (item.BASLIK != "" || item.ACIKLAMA != "" || item.URL != "#")
+                                                                                {
+                                                
+                                                
+                                                
+                                                
+                                                                              <div class="col-sm-12">
+                                                                                    <div class="text-slide">
+
+                                                                                        @if (item.BASLIK != "")
+                                                                                        {
+                                                                                            <h1>@item.BASLIK</h1>
+                                                                                        }
+                                                                                        
+                                                                                     
+                                                                                        @if (item.ACIKLAMA != "")
+                                                                                        {
+                                                                                            <p>
+                                                                                                @item.ACIKLAMA
+                                                                                            </p>
+                                                                                        }
+                                                                                        
+                                                                                        @*@if (item.URL != "#")
+                                                                                        {
+                                                                                            <a class="btn btn-blue" href="@item.URL">Detaylar.</a>
+                                                                                        }*@
+                                                                                       
+                                                                                    </div>
+                                                                                </div>
+                                                
+                                                                                }
+                                                  
+                                                </div>
+                                        </div> 
+                                    </div>
+                                
+                                
+                                
+                            }
+                        
+        }
+    }
+
+
+</div> 
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+
+            <div class="service-box style-1 text-center wow fadeInDown">
+                <img class="wow pulse" src="/Content/assets/images/sosyal.png" alt="" style="height:110px;">
+             
+
+                <div class="service-box-content">
+
+                    <h4><a href="/153/sosyal-medya">Sosyal Medya @*<span class="text-uppercase">Html5.</span>*@</a></h4>
+
+                    <p>Dijital pazarlama ve algı yönetiminde oldukça önemli bir mecra olan sosyal medya hesaplarınızı profesyonel olarak yönetiyoruz.</p>
+
+                    <a href="/153/sosyal-medya">Detaylar</a>
+
+                </div> 
+
+            </div> 
+
+        </div><!-- col -->
+        <div class="col-sm-4">
+
+            <div class="service-box style-1 text-center wow fadeInDown" data-wow-delay="0.2s">
+
+                <img class="wow pulse" src="/Content/assets/images/tasarim.png" alt="" style="height:110px;">
+
+                <div class="service-box-content">
+
+                    <h4><a href="/154/grafik-tasarim">Grafik Tasarım.</a></h4>
+
+                    <p>Tasarım disiplinlerinin desteği ile markanızın itiyacı olan her alanda yanınızda yer alıyoruz.</p>
+
+                    <a href="/154/grafik-tasarim">Detaylar</a>
+
+                </div> 
+
+            </div> 
+
+        </div> 
+        <div class="col-sm-4">
+
+            <div class="service-box style-1 text-center wow fadeInDown" data-wow-delay="0.4s">
+
+                <img class="wow pulse" src="/Content/assets/images/danismanlik.png" alt="" style="height:110px;">
+          
+                <div class="service-box-content">
+
+                    <h4><a href="/155/danismanlik-ve-egitim-hizmetleri">Danışmanlık ve Eğitim Hizmetleri</a></h4>
+
+                    <p>Marka yaratmak ve yönetmek bir bütündür. Satış ve pazarlama ise bu bütünün en büyük parçası.</p>
+
+                    <a href="/155/danismanlik-ve-egitim-hizmetleri">Detaylar</a>
+
+                </div> 
+
+            </div> 
+
+        </div> 
+    </div> 
+</div> 
+
+
+
+
+
+
+
+
+
+
+ 
+<section class="full-section" id="section-17">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="owl-carousel logos">
+
+
+
+                    @foreach (var resim in (IQueryable<Gsis.Models.REFERANSLAR>)ViewBag.Referanslar)
+                    {
+                           <div>
+                                       <img src="/Content/img/referanslar/@resim.RESIM" alt=" @resim.BASLIK ">
+                            </div>
+                          
+                    }
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+  
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <p class="text-center">
+                <a class="btn btn-blue" href="/referanslarimiz">Tüm Referanslar..</a>
+
+                 
+
+            </p>
+
+        </div> 
+    </div> 
+</div> 
+
+ 
+
+<br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <img src="/Content/images/index/image-4.jpg" alt="">
+
+        </div> 
+    </div> 
+</div> 
+
+<br>
+
+
+
+ 
+
+
+@*@if (sabit_icerik.ICERIK1 != "")
+    
+{
+     <section>
+        <div class="infobox">
+            <div class="box">
+                <p>  <b>Duyurular : </b></p>
+                <ul>
+                    @foreach (var duyuru in (IQueryable<Gsis.Models.DUYURULAR>)ViewBag.Son_duyurular)
+                    {
+                        <li><a href="/d/@duyuru.ID/@duyuru.BASLIK.ToURL()">@duyuru.BASLIK</a></li>
+                    }
+                </ul>
+                <div class="box_buton">
+                    <a href="#" class="asagi">&lt;</a>
+                    <a href="#" class="yukari">&gt;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+}else
+{
+     
+}*@
+
+
+
+
+
+
+
+    @*<ul class="post-carousel">
+            @foreach (var haber in (IQueryable<Gsis.Models.HABERLER>)ViewBag.Son_haberler)
+             {
+                <li class="entry">
+                    <div class="entry-image">
+                        <a href="/h/@haber.ID/@haber.BASLIK.ToURL()" title="Post Title"><span class="overlay link"></span><img src="/Content/img/haber/p_@haber.RESIM" alt=""></a>
+                    </div>
+
+                    <div class="entry-body">
+                        <h4 class="entry-title"><a href="/h/@haber.ID/@haber.BASLIK.ToURL()">@haber.BASLIK</a></h4>
+                        <div class="entry-content">
+                           <p>@haber.ICERIK &hellip;</p>
+
+                            <span>@haber.TARIH.Value.ToShortDateString()</span>
+                        </div>
+                    </div>
+                </li>
+             }
+</ul>*@
+ 
+
+  

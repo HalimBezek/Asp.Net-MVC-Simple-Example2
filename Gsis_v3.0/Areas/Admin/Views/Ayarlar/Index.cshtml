@@ -1,0 +1,312 @@
+﻿
+@{
+    ViewBag.Title = "Ayarlar";
+    Layout = "~/Areas/Admin/Views/_LayoutPage.cshtml";
+
+    var sosyal_medya = (Gsis.Models.SOSYAL_MEDYA)ViewBag.sosyal_medya;
+
+    var iletisim_bilgileri = (Gsis.Models.ILETISIM_BILGILERI)ViewBag.iletisim_bilgileri;
+
+    var site_bilgileri = (Gsis.Models.SITE_BILGILERI)ViewBag.site_bilgileri;
+ 
+ }
+
+<div class="col-md-10 content-wrapper">
+    <div class="row">
+        <div class="col-md-4">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i><a href="/">Ana Sayfa</a>
+                </li>
+                <li class="active">Ayarlar</li>
+            </ul>
+        </div>
+  
+    </div>
+
+    <div class="content">
+        <div class="main-content">
+            <div class="widget">
+                <div class="widget-header"><h3><i class="fa fa-edit"></i> Iletisim Bilgileri</h3></div>
+                <div class="widget-content">
+
+                    <form class="form-horizontal" enctype="multipart/form-data" method="post" action="/Admin/ayarlar/iletisim" role="form">
+                        <fieldset>
+
+                            <div class="form-group">
+                                <label for="ticket-subject" class="col-sm-2 control-label">Adres</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="adres" name="adres" value="@iletisim_bilgileri.ADRES" placeholder="Adres">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ticket-subject" class="col-sm-2 control-label">Tel 1</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" id="tel1" name="tel1" value="@iletisim_bilgileri.TEL1" placeholder="Tel 1">
+                                </div>
+
+
+                                <label for="ticket-subject" class="col-sm-1 control-label">Tel 2</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" id="tel2" name="tel2" value="@iletisim_bilgileri.TEL2" placeholder="Tel 2">
+                                </div>
+
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ticket-subject" class="col-sm-2 control-label">Gsm</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" id="gsm" name="gsm" value="@iletisim_bilgileri.GSM" placeholder="Gsm">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ticket-subject" class="col-sm-2 control-label">Fax</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" id="fax" name="fax" value="@iletisim_bilgileri.FAX" placeholder="Fax">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ticket-subject" class="col-sm-2 control-label">Mail 1</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" id="mail1" name="mail1" value="@iletisim_bilgileri.MAIL1" placeholder="Mail 1">
+                                </div>
+
+                                <label for="ticket-subject" class="col-sm-1 control-label">Mail 2</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" id="mail2" name="mail2" value="@iletisim_bilgileri.MAIL2" placeholder="Mail 2">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ticket-subject" class="col-sm-2 control-label">İl</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="il" name="il" value="@iletisim_bilgileri.IL" placeholder="İl">
+                                </div>
+
+                                <label for="ticket-subject" class="col-sm-1 control-label">İlçe</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="ilce" name="ilce" value="@iletisim_bilgileri.ILCE" placeholder="İlçe">
+                                </div>
+
+                                <label for="ticket-subject" class="col-sm-1 control-label">Yer</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="yer" name="yer" value="@iletisim_bilgileri.YER" placeholder="Yer">
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="ticket-subject" class="col-sm-2 control-label">Enlem</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="enlem" name="enlem" value="@iletisim_bilgileri.ENLEM" >
+                                </div>
+
+                                <label for="ticket-subject" class="col-sm-1 control-label">Boylam</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="boylam" name="boylam" value="@iletisim_bilgileri.BOYLAM" >
+                                </div>
+
+                               
+
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-9">
+                                    <button type="submit" class="btn btn-primary btn-block">Güncelle</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+
+
+             
+                <div class="widget">
+                    <div class="widget-header"><h3><i class="fa fa-edit"></i> Sosyal Medya Adresleri</h3></div>
+                    <div class="widget-content">
+                         
+                        <form class="form-horizontal" enctype="multipart/form-data" method="post" action="/Admin/ayarlar/sosyal_medya" role="form">
+
+                            <fieldset>
+
+                                <div class="form-group">
+                                    <label for="ticket-subject" class="col-sm-3 control-label">Facebook</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="facebook" name="facebook" value="@sosyal_medya.FACEBOOK" placeholder="Facebook Adresi">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ticket-subject" class="col-sm-3 control-label">Twitter</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="twitter" name="twitter" value="@sosyal_medya.TWITTER" placeholder="Twitter Adresi">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ticket-subject" class="col-sm-3 control-label">Google Plus</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="google" name="google" value="@sosyal_medya.GOOGLE" placeholder="Google Plus Adresi">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ticket-subject" class="col-sm-3 control-label">Youtube</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="youtube" name="youtube" value="@sosyal_medya.YOUTUBE" placeholder="Youtube Adresi">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ticket-subject" class="col-sm-3 control-label">Behance</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="behance" name="behance" value="@sosyal_medya.BEHANCE" placeholder="Behance Adresi">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="ticket-subject" class="col-sm-3 control-label">Instagram</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="instagram" name="instagram" value="@sosyal_medya.INSTAGRAM" placeholder="Instagram Adresi">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button type="submit" class="btn btn-primary btn-block">Güncelle</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        </div>
+                </div>
+              
+            
+            
+            
+            
+            
+    
+
+
+
+            <div class="widget">
+                <div class="widget-header"><h3><i class="fa fa-edit"></i> Site Bilgileri</h3></div>
+                <div class="widget-content">
+
+                    <form class="form-horizontal" enctype="multipart/form-data" method="post" action="/Admin/ayarlar/site_bilgileri" role="form">
+                        <fieldset>
+
+                            <div class="form-group">
+                                <label for="ticket-subject" class="col-sm-2 control-label">Domain</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="domain" name="domain" value="@site_bilgileri.DOMAIN" >
+                                </div>
+                            </div>
+                          
+                          
+                          
+                            <div class="form-group">
+                                <label for="ticket-subject" class="col-sm-2 control-label">Slogan</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="slogan" name="slogan" value="@site_bilgileri.SLOGAN" >
+                                </div>
+                            </div>
+
+
+                          
+                         
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-9">
+                                    <button type="submit" class="btn btn-primary btn-block">Güncelle</button>
+                                </div>
+                            </div>
+	 
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="widget">
+                <div class="widget-header"><h3><i class="fa fa-edit"></i> Tema Bilgileri</h3></div>
+                <div class="widget-content">
+
+                    <form class="form-horizontal" enctype="multipart/form-data" method="post" action="/Admin/ayarlar/tema" role="form">
+                        <fieldset>
+
+                            <div class="form-group">
+                                <label for="ticket-subject" class="col-sm-2 control-label">Tema Adı</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="tema" name="tema" value="@ViewBag.TemaName">
+                                </div>
+                            </div>
+                         
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-9">
+                                    <button type="submit" class="btn btn-primary btn-block">Güncelle</button>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="widget">
+                <div class="widget-header"><h3><i class="fa fa-edit"></i> Site Bilgileri</h3></div>
+                <div class="widget-content">
+
+                    <form class="form-horizontal label-left" method="post" action="/Admin/ayarlar/logo" enctype="multipart/form-data" role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="ticket-subject" class="col-sm-2 control-label">Logo Seç</label>
+                                <div class="col-sm-9">
+                                    <input type="file" id="logo" name="logo" class="form-control">
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="ticket-subject" class="col-sm-2 control-label">Yüklü Logo</label>
+                                <div class="col-sm-9">
+                                    <img src="/Content/img/@site_bilgileri.LOGO" />
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-9">
+                                    <button type="submit" class="btn btn-primary btn-block">Logo Yükle</button>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+            </div>
+</div>

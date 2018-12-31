@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "İletişim Formları";
+    Layout = "~/Areas/Admin/Views/_LayoutPage.cshtml";
+    }
+<div class="col-md-10 content-wrapper">
+    <div class="row">
+        <div class="col-lg-4 ">
+            <ul class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="#">Ana Sayfa</a></li>
+                <li><a href="#">İletişim Formları</a></li>
+                <li class="active">Form Oku</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="main-content">
+            <div class="widget widget-table">
+                <div class="widget-header"><h3><i class="fa fa-table"></i>Form Listesi</h3></div>
+                <div class="widget-content">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="30">#</th>
+                                <th>Ad Soyad</th>
+                                <th>Mail</th>
+                                <th>Konu</th>
+                                <th>Tarih</th>
+                                <th width="85">İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in (IQueryable<Gsis.Models.ILETISIM_FORMLARI>)ViewBag.formlar)
+                            {
+                                <tr>
+                                    <td>@item.ID</td>
+                                    <td>@item.AD_SOYAD</td>
+                                    <td>@item.MAIL</td>
+                                    <td>@item.KONU</td>
+                                    <td>@item.TARIH</td>
+                                    <td><a href="/Admin/form/oku/@item.ID" class="btn btn-success btn-xs">Oku</a> <a href="/Admin/form/listele?sil=@item.ID" class="btn btn-success btn-xs">Sil</a></td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

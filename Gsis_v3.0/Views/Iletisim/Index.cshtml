@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "İletişim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    //layouta gönderiliyor
+    ViewBag.PageTitle = "İletişim";
+   var sabit_icerik = (Gsis.Models.ICERIK)ViewBag.sabit_icerik;
+    
+ }
+
+            <div id="page-header" class="style-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4>İletişim</h4>
+                        </div> 
+                        <div class="col-sm-6">
+
+                            <ol class="breadcrumb">
+                                <li><a href="/">Ana Sayfa</a></li>
+                                <li class="active">İletişim</li>
+                            </ol>
+
+                        </div> 
+
+                    </div> 
+                </div> 
+            </div> 
+
+@*@Html.Raw(sabit_icerik.ICERIK1)*@
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="headline">
+                            <h1>İletişim Bilgileri</h1>
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <h4><strong>İletişim formu aracılığı ile mesajlarınızı bize iletebilirsiniz.</strong></h4>
+                        <br>
+                        <form id="contact-form" name="contact-form" method="post" action="/iletisim">
+                            <fieldset>
+                                <div id="alert-area"></div>
+
+                                <input class="col-xs-12" id="name" type="text" name="ad_soyad" placeholder="Ad Soyad..">
+
+                                <input class="col-xs-12" id="email" type="email" name="email" placeholder="Email..">
+
+                                <input class="col-xs-12" id="subject" type="text" name="konu" placeholder="Konu..">
+
+                                <textarea class="col-xs-12" id="message" name="mesaj" rows="8" cols="25" placeholder="Mesajınız.."></textarea>
+
+                                <input class="btn btn-blue" id="submit" type="submit" name="submit" value="Gönder">
+
+                            </fieldset>
+                        </form>
+                    </div> 
+                    <div class="col-sm-5">
+                        <div class="widget widget-contact" style="margin-bottom:50px;">
+                            <h4 class="widget-title">İletişim Bilgileri</h4>
+                            <ul>
+                                <li>
+                                    <i class="mt-icons-map-marker"></i>
+                                    @ViewBag.Adres
+                                </li>
+                                <li>
+                                    <i class="mt-icons-telephone"></i>
+                                    <span class="hidden-xs">@ViewBag.Tel</span>
+                                    <a class="visible-xs-inline" href="tel:@ViewBag.Tel">@ViewBag.Tel</a>
+                                </li>
+                                <li>
+                                    <i class="mt-icons-mail"></i>
+                                    <a href="mailto:@ViewBag.Mail">@ViewBag.Mail</a>
+                                </li>
+                            </ul>
+
+                        </div> 
+
+                        <div class="widget widget-contact" style="margin-bottom:50px;">
+                            <div class="map" data-zoom="14" data-address="İsmet İnönü-1 Cd. No:133 26130 Tepebaşı/Eskişehir" data-address-details="Bergen Office"></div>
+                        </div>
+                    </div> 
+                </div> 
+            </div> 
+    <script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+  
+

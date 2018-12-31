@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Manşet Resimleri";
+    Layout = "~/Areas/Admin/Views/_LayoutPage.cshtml";
+    
+    
+    
+}
+  
+        <div class="bottom">
+            <div class="container">
+                <div class="row">
+               
+                    <div class="col-md-10 content-wrapper">
+                        <div class="row">
+                            <div class="col-lg-4 ">
+                                <ul class="breadcrumb">
+                                    <li><i class="fa fa-home"></i><a href="#">Ana Sayfa</a></li>
+                                    <li><a href="#">Manşet</a></li>
+                                    <li class="active">Düzenle</li>
+                                </ul>
+                            </div>
+                          
+                        </div>
+ 
+                        <div class="content">
+                            <div class="main-header">
+                                <h2>Manşetler</h2>
+                                <em>Ana Sayfa Manşet Resimleri</em>
+                            </div>
+
+                            <div class="main-content">
+                               
+                                <a href="/Admin/manset/ekle" class="btn btn-custom-primary btn-md"><i class="fa fa-upload"></i> Yeni Manşet Ekle</a>
+                                  
+                                </div>
+                               
+                                <div class="row list-group king-gallery">
+                                     
+                                    @{
+                                        foreach (var item in (IQueryable<Gsis.Models.MANSET>)ViewBag.Mansetler)
+                                        {
+                                           <div class="item col-md-3 col-sm-6">
+                                            <div class="thumbnail">
+                                                <img class="list-group-image" src="/Content/img/manset/@item.RESIM" alt="" />
+                                                <div class="caption">
+                                                    <h3 class="inner list-group-item-heading">@item.BASLIK</h3>
+                                                    <ul class="list-unstyled">
+                                                        <li><strong>Bailık:</strong> @item.BASLIK</li>
+                                                        <li><strong>Açıklama:</strong> @item.ACIKLAMA</li>
+                                                        <li><strong>Link:</strong> @item.URL</li>
+                                                        <li><strong>Sıra No:</strong> @item.SIRA_NO</li>
+                                                    </ul>
+                                                    <div class="action-buttons">
+                                                        @*<a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Düzenle</a>*@
+                                                        <a href="/Admin/manset/listele?sil=@item.ID" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Sil</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        }
+                                    }
+                                   
+                               
+                                
+                                
+                                </div>
+                                
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+    
+    <script src="/Areas/Admin/assets/js/jquery-2.1.0.min.js"></script>
+    <script src="/Areas/Admin/assets/js/bootstrap.js"></script>
+    <script src="/Areas/Admin/assets/js/modernizr.js"></script>
+    <script src="/Areas/Admin/assets/js/bootstrap-tour.custom.js"></script>
+    <script src="/Areas/Admin/assets/js/king-common.min.js"></script>
+    <script src="/Areas/Admin/demo-style-switcher/assets/js/deliswitch.js"></script>

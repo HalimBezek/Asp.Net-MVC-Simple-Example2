@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Galeri";
+    //layouta gönderiliyor
+    ViewBag.PageTitle = "Galeri";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var sabit_icerik = (Gsis.Models.ICERIK)ViewBag.sabit_icerik;
+
+}
+
+<div id="page-header" class="style-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Galeri</h4>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb">
+                    <li><a href="/">Ana Sayfa</a></li>
+                    <li class="active">Galeri</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*@Html.Raw(sabit_icerik.ICERIK1)*@
+
+
+
+<div class="container" style="min-height:400px;">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="isotope col-4 gutter">
+
+
+
+
+                <ul id="gallery" class="portfolio-grid clearfix">
+                    @{
+                        var GaleriResimleri = (IQueryable<Gsis.Models.GALERI_RESIMLERI>)ViewBag.GaleriResimleri;
+
+
+                        if (GaleriResimleri.Count() > 0)
+                        {
+                            foreach (var item in GaleriResimleri)
+                            {
+
+                                <div class="isotope-item">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-item-thumbnail">
+                                            <img src="/Content/img/galeri/t_@item.RESIM" alt="">
+                                            <div class="portfolio-item-hover">
+                                                <a class="fancybox-portfolio-gallery zoom-action" href="/Content/img/galeri/@item.RESIM"><i class="mt-icons-expand3"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="portfolio-item-details">
+                                            <p>
+                                                @item.ACIKLAMA
+
+                                            <p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger">Galeride Ekli Resim Bulunamadı !</div>
+                        }
+                    }
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+

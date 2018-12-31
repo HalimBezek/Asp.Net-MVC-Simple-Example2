@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=irmakpvcyapi;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="dbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ADMIN" Member="ADMINs">
+    <Type Name="ADMIN">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KULLANICI_ADI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SIFRE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DURUM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SEVIYE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DUYURULAR" Member="DUYURULARs">
+    <Type Name="DUYURULAR">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BASLIK" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="DUYURU" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="TARIH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GALERI_RESIMLERI" Member="GALERI_RESIMLERIs">
+    <Type Name="GALERI_RESIMLERI">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GALERI_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACIKLAMA" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="RESIM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="SIRA_NO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TITLE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GALERILER" Member="GALERILERs">
+    <Type Name="GALERILER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GALERI_ADI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KEYWORDS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HABERLER" Member="HABERLERs">
+    <Type Name="HABERLER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BASLIK" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="ICERIK" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="TARIH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RESIM" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ICERIK" Member="ICERIKs">
+    <Type Name="ICERIK">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ICERIK" Member="ICERIK1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="TITLE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KEYWORDS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MENU_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SAYFA_NO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ILETISIM_BILGILERI" Member="ILETISIM_BILGILERIs">
+    <Type Name="ILETISIM_BILGILERI">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ADRES" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="TEL1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TEL2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GSM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MAIL1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MAIL2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ILCE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YER" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ENLEM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BOYLAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ILETISIM_FORMLARI" Member="ILETISIM_FORMLARIs">
+    <Type Name="ILETISIM_FORMLARI">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AD_SOYAD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GSM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KONU" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="MESAJ" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="TARIH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IS_BASVURULARI" Member="IS_BASVURULARIs">
+    <Type Name="IS_BASVURULARI">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DOSYA_ADI" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="TARIH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KATEGORILER" Member="KATEGORILERs">
+    <Type Name="KATEGORILER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KATEGORI_ADI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UST_KATEGORI_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DURUM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="SILME_IZNI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SIRA_NO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UST_MENU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ICERIK" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SAYFA_NO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KATILIMCI_GORUSLERI" Member="KATILIMCI_GORUSLERIs">
+    <Type Name="KATILIMCI_GORUSLERI">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AD_SOYAD" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="EGITIM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="GORUS" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="TARIH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MANSET" Member="MANSETs">
+    <Type Name="MANSET">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RESIM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BASLIK" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ACIKLAMA" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="SIRA_NO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TITLE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.REFERANSLAR" Member="REFERANSLARs">
+    <Type Name="REFERANSLAR">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BASLIK" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ACIKLAMA" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="RESIM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="SIRA_NO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TITLE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RESIM_AYAR" Member="RESIM_AYARs">
+    <Type Name="RESIM_AYAR">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MANSET_W" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MANSET_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GALERI_K_W" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GALERI_K_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HABER_K_W" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HABER_K_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="REFERANS_K_W" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="REFERANS_K_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LOGO_W" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GALERI_B_W" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GALERI_B_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HABER_B_W" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HABER_B_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="REFERANS_B_W" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="REFERANS_B_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SITE_BILGILERI" Member="SITE_BILGILERIs">
+    <Type Name="SITE_BILGILERI">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SLOGAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LOGO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COPH" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DOMAIN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACILIS_MESAJI_DURUM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ACILIS_MESAJI" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="TEMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BG_COLOR" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BG_IMG" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SOSYAL_MEDYA" Member="SOSYAL_MEDYAs">
+    <Type Name="SOSYAL_MEDYA">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FACEBOOK" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="TWITTER" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="GOOGLE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="YOUTUBE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="BEHANCE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="INSTAGRAM" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="DIGER" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TEMALAR" Member="TEMALARs">
+    <Type Name="TEMALAR">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TEMA_ADI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IMG" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACIKLAMA" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="DURUM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.URUN_KATEGORILERI" Member="URUN_KATEGORILERIs">
+    <Type Name="URUN_KATEGORILERI">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KATEGORI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KEYWORDS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.URUNLER" Member="URUNLERs">
+    <Type Name="URUNLER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KAT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URUN_ADI" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ACIKLAMA" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="RESIM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EK_TARIHI" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FIYAT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KEYWORDS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

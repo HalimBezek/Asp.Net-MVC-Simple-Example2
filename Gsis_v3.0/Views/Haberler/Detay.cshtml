@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Haber Detayları";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    var haber = (Gsis.Models.HABERLER)ViewBag.haber;
+    
+    //layouta gönderiliyor
+    ViewBag.PageTitle = haber.BASLIK;
+
+  
+    
+}
+ 
+
+
+<div id="page-header" class="style-2" >
+    <div class="container" style="min-height:400px;">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Blog Detay</h4>
+            </div>
+            <div class="col-sm-6">
+
+                <ol class="breadcrumb">
+                    <li><a href="/">Ana Sayfa</a></li>
+                    <li class="active">Blog Detay</li>
+                </ol>
+
+            </div>
+        </div>
+    </div> 
+</div> 
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-sm-4">
+
+            <div class="widget widget-search">
+                <form name="search" method="get" action="/ara">
+                    <fieldset>
+                        <input type="search" name="kelime" placeholder="Aranacak Kelime...">
+                        <input type="submit" name="submit" value="">
+                    </fieldset>
+                </form>
+            </div> 
+            <div class="widget widget-recent-posts">
+
+                <h4 class="widget-title">Son Blog Yazıları</h4>
+
+                <ul>
+
+
+                    @foreach (var item in (IQueryable<Gsis.Models.HABERLER>)ViewBag.Son_haberler)
+                    {
+
+
+                        <li>
+                            <a class="post-title" href="/h/@item.ID/@item.BASLIK.ToURL()">@item.BASLIK</a><br>
+                            <a href="/h/@item.ID/@item.BASLIK.ToURL()" class="post-date">@item.TARIH.Value.ToShortDateString()</a>
+                        </li>
+
+
+                    }
+
+
+                </ul>
+            </div>
+
+
+        </div><!-- col -->
+        <div class="col-sm-8">
+
+            <div class="blog-article">
+
+                @*<div class="blog-article-thumbnail">
+                        <img src="images/blog/blog-post/image-1.jpg" alt="">
+                    </div>*@
+
+              
+
+                <div class="blog-article-details">
+
+                    <h3> @haber.TARIH.Value.ToShortDateString()  - @haber.BASLIK</h3>
+
+                </div>
+
+                <p>
+                    @Html.Raw(haber.ICERIK)
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+ </div>
+
+
+
+
+
+
+ 

@@ -1,0 +1,68 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="tr" class="no-js">
+
+<head>
+    <title>GuvenSoft Admin Panel v1.0</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="GuvenSoft Admin Panel v1.0">
+    <meta name="author" content="GuvenSoft Admin Panel v1.0">
+  
+    <link href="/Areas/Admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/Areas/Admin/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/Areas/Admin/assets/css/main.min.css" rel="stylesheet" type="text/css">
+ 
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+</head>
+<body>
+    <div class="full-page-wrapper page-login text-center">
+        <div class="inner-page">
+            <div class="logo">
+                <a href="/">
+                    <img src="/Areas/Admin/assets/img/kingboard-logo.png" alt="" />
+                </a>
+            </div>
+          
+            <div class="separator">
+                <span>Kullanıcı Bilgilerini Giriniz..</span>
+            </div>
+            <div class="login-box center-block">
+                <form action="/Admin/Giris" method="post">
+                    <p class="title">Kullanıcı Adı Şifre ?</p>
+                    <div class="input-group">
+                        <input type="text" name="kullanici" placeholder="Kullanıcı Adı.." class="form-control">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </span>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" placeholder="Şifre.." name="sifre" class="form-control">
+                        <span class="input-group-addon">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+                
+                    <button class="btn btn-custom-primary btn-lg btn-block btn-login"><i class="fa fa-arrow-circle-o-right"></i> Giris Yap</button>
+                </form>
+                <div class="links">
+                    <p>
+                        <a href="#">Şifremi Unuttum?</a>
+                    </p>
+                   
+                </div>
+            </div>
+        </div>
+        <footer class="footer">&copy;  2014 GüvenSoft Yazılım Ltd Şti | Gsis Kontrol Panel v1.0 - www.guvensoft.com.tr</footer>
+    </div>
+ 
+    <script type="text/javascript" src="/Areas/Admin/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/Areas/Admin/assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/Areas/Admin/assets/js/modernizr.js"></script>
+</body>
+ 
+</html>

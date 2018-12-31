@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "listele";
+    Layout = "~/Areas/Admin/Views/_LayoutPage.cshtml";
+}
+
+
+<div class="col-md-10 content-wrapper">
+    <div class="row">
+        <div class="col-lg-4 ">
+            <ul class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="#">Ana Sayfa</a></li>
+                <li><a href="#">Haberler</a></li>
+                <li class="active">Haber Listesi</li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div class="content">
+        <div class="main-header">
+            <h2> Haberler</h2>
+            <em>Haberleri Düzenle</em>
+        </div>
+
+        <div class="main-content">
+            <div class="gallery-buttons bottom-30px">
+                <a href="/Admin/haber/ekle" class="btn btn-custom-primary btn-md"><i class="fa fa-upload"></i> Yeni Haber Ekle</a>
+                @*<button type="button" class="btn btn-primary btn-md"><i class="fa fa-picture-o"></i> New Album</button>*@
+            </div>
+            <div class="widget widget-table">
+                <div class="widget-header"><h3><i class="fa fa-table"></i>Haber Listesi</h3></div>
+                <div class="widget-content">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="30">#</th>
+                                <th>Başlık</th>
+                                <th>Tarih</th>
+                                <th width="115">İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in (IQueryable<Gsis.Models.HABERLER>)ViewBag.Haberler)
+                            {
+                                <tr>
+                                    <td>@item.ID</td>
+                                    <td>@item.BASLIK</td>
+                                    <td>@item.TARIH</td>
+                                    <td><a href="/Admin/haber/detay/@item.ID" class="btn btn-success btn-xs">Detaylar</a> <a href="/Admin/haber/listele?sil=@item.ID" class="btn btn-success btn-xs">Sil</a></td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

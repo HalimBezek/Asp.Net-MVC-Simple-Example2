@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Galeri listele";
+    Layout = "~/Areas/Admin/Views/_LayoutPage.cshtml";
+}
+
+
+<div class="bottom">
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-md-10 content-wrapper">
+                <div class="row">
+                    <div class="col-lg-4 ">
+                        <ul class="breadcrumb">
+                            <li><i class="fa fa-home"></i><a href="#">Ana Sayfa</a></li>
+                            <li><a href="#">Galeri</a></li>
+                            <li class="active">Düzenle</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+             
+                <div class="content">
+                    <div class="main-header">
+                        <h2>Galeriler</h2>
+                        <em>Galeri Resimleri</em>
+                    </div>
+
+                    <div class="main-content">
+        
+                        <div class="gallery-buttons bottom-30px">
+                            <a href="/Admin/galeri/ekle" class="btn btn-custom-primary btn-md"><i class="fa fa-upload"></i> Yeni Galeri Resmi Ekle</a>
+                        </div>
+                       
+                        <div class="row list-group king-gallery">
+
+                            @{
+                                foreach (var item in (IQueryable<Gsis.Models.GALERI_RESIMLERI>)ViewBag.Galeri_Resimleri)
+                                {
+                                    <div class="item col-md-3 col-sm-6">
+                                        <div class="thumbnail">
+                                            <img class="list-group-image" src="/Content/img/galeri/t_@item.RESIM" alt="" />
+                                            <div class="caption">
+                                               
+                                                <ul class="list-unstyled">
+                                                    <li><strong>Açıklama:</strong> @item.ACIKLAMA</li>
+                                                    <li><strong>Sıra No:</strong> @item.SIRA_NO</li>
+                                                </ul>
+                                                <div class="action-buttons">
+                                                    @*<a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Düzenle</a>*@
+                                                    <a href="/Admin/galeri/listele?resim_sil=@item.ID" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                        </div>
+                      
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+</div>
+
+<script src="/Areas/Admin/assets/js/jquery-2.1.0.min.js"></script>
+<script src="/Areas/Admin/assets/js/bootstrap.js"></script>
+<script src="/Areas/Admin/assets/js/modernizr.js"></script>
+<script src="/Areas/Admin/assets/js/bootstrap-tour.custom.js"></script>
+<script src="/Areas/Admin/assets/js/king-common.min.js"></script>
+<script src="/Areas/Admin/demo-style-switcher/assets/js/deliswitch.js"></script>

@@ -1,0 +1,61 @@
+﻿@{
+ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+     
+}
+
+
+@*<aside id="sidebar" class="one-fourth sol_menu">
+    <div class="widget">
+        <h3>@ViewBag.kategori</h3>
+        <nav>
+            <ul class="menu">
+
+                @foreach(var item in (IQueryable<Gsis.Models.KATEGORILER>)ViewBag.alt_kategoriler)
+                {
+                      <li><a href="/@item.ID/@item.KATEGORI_ADI.ToString()">@item.KATEGORI_ADI</a></li>
+                }
+            </ul>
+        </nav>
+    </div>
+</aside>*@
+ 
+  
+
+            <div id="page-header" class="style-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4>@ViewBag.PageTitle</h4>
+                        </div> 
+                        <div class="col-sm-6">
+
+                            <ol class="breadcrumb">
+                                <li><a href="/">Ana Sayfa</a></li>
+                                <li class="active">@ViewBag.PageTitle</li>
+                            </ol>
+
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+
+            @*<div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="headline">
+                            <h1>@ViewBag.PageTitle</h1>
+                        </div> 
+                    </div> 
+                </div> 
+            </div>*@ 
+
+            <div class="container" style="min-height:400px;">
+
+                 
+                @Html.Raw(ViewBag.icerik)
+                 
+            </div> 
+
+         
+ 

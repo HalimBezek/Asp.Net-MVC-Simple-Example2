@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Admin Paneli - Gsis v1.0";
+    Layout = "~/Areas/Admin/Views/_LayoutPage.cshtml";
+}
+<div class="col-md-10 content-wrapper">
+    <div class="row">
+        <div class="col-md-4">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i><a href="#">Admin Paneli</a>
+                </li>
+                <li class="active">Ana Sayfa</li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <div class="top-content">
+                <ul class="list-inline mini-stat">
+                    <li>
+                        <h5>
+                            Ziyaretçi
+                            <span class="stat-value stat-color-orange"><i class="fa fa-plus-circle"></i> @ViewBag.dizi_sayisi</span>
+                        </h5>
+                        <span id="mini-bar-chart1" class="mini-bar-chart"></span>
+                    </li>
+            
+                    <li>
+                        <h5>
+                            Tekil Ziyaretçi
+                            <span class="stat-value stat-color-seagreen"><i class="fa fa-plus-circle"></i> @ViewBag.uye_sayisi</span>
+                        </h5>
+                        <span id="mini-bar-chart3" class="mini-bar-chart"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <div class="main-header">
+            <h2>Ana Sayfa</h2>
+            <em>Gsis v1.0</em>
+        </div>
+        <div class="main-content">
+            <div class="row">
+                <div class="col-md-9">
+ 
+
+                </div>
+
+            </div>
+
+ 
+        </div>
+    </div>
+</div>

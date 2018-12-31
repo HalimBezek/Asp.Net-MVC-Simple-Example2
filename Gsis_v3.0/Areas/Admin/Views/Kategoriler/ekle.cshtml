@@ -1,0 +1,223 @@
+﻿
+@{
+    ViewBag.Title = "İçerik Ekle";
+    Layout = "~/Areas/Admin/Views/_LayoutPage.cshtml";
+    var kategoriler = (IQueryable<Gsis.Models.KATEGORILER>)ViewBag.kategoriler;
+}
+
+ <script src="/Areas/Admin/ckeditor/ckeditor.js"></script>
+
+
+
+    <div class="col-md-10 content-wrapper">
+        <div class="row">
+            <div class="col-lg-4 ">
+                <ul class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="#">Ana Sayfa</a></li>
+                    <li><a href="#">Kategoriler</a></li>
+                    <li class="active">Yeni Ekle</li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="main-content">
+                    <form class="form-horizontal label-left" method="post" action="/Admin/kategoriler/ekle" enctype="multipart/form-data" role="form">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h3><i class="fa fa-edit"></i> Kategori Ekle</h3>
+                            </div>
+                            <div class="widget-content">
+                              
+
+
+                                
+
+
+
+
+
+                          
+                                        <div class="form-group">
+                                            <label for="phone" class="col-sm-2 control-label">Kategori Adı <br /></label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="kategori_adi" name="kategori_adi" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="phone" class="col-sm-2 control-label">İçerik Eklensin Mi ? <br /></label>
+                                            <div class="col-md-10">
+                                                <select class="form-control" id="icerik_eklensinmi" name="icerik_eklensinmi">
+                                                    <option value="True">Evet</option>
+                                                    <option value="False">Hayır</option>
+
+                                                    <script type="text/javascript">
+                                                        $("#icerik_eklensinmi").change(function () {
+
+                                                            var degr = $("#icerik_eklensinmi").val();
+
+                                                            if (degr == 'False') {
+                                                                $("#div_icerik").hide("slow");
+                                                                $("#div_title").hide("slow");
+                                                                $("#div_desc").hide("slow");
+                                                                $("#div_key").hide("slow");
+                                                                $("#div_ust_kat").hide("slow");
+                                                                $("#div_ust_menu").hide("slow");
+                                                            } else {
+                                                                $("#div_icerik").show("slow");
+                                                                $("#div_title").show("slow");
+                                                                $("#div_desc").show("slow");
+                                                                $("#div_key").show("slow");
+                                                                $("#div_ust_kat").show("slow");
+                                                                $("#div_ust_menu").show("slow");
+                                                            }
+                                                        }).change();
+                                                    </script>
+                                                     
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div id="div_icerik" class="form-group">
+                                            <label for="tax-id" class="col-sm-2 control-label">İçerik<br /></label>
+                                            <div class="col-md-12">
+
+                                             
+                                                <textarea class="ckeditor form-control" name="icerik"><p>İçeril Yazısı </p></textarea>
+                                            </div>
+                                        </div>
+
+                                <div id="div_title" class="form-group">
+                                    <label for="phone" class="col-sm-2 control-label">Meta Title <br /></label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="meta_title" name="meta_title" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div id="div_desc" class="form-group">
+                                    <label for="phone" class="col-sm-2 control-label">Meta Description <br /></label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="meta_desc" name="meta_desc" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div id="div_key" class="form-group">
+                                    <label for="phone" class="col-sm-2 control-label">Meta Keywords <br /></label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="meta_key" name="meta_key" class="form-control">
+                                    </div>
+                                </div>
+
+                                 
+                                <div id="div_ust_kat" class="form-group">
+                                    <label for="phone-ex" class="col-sm-2 control-label">Üst Kategori ?<br /></label>
+                                    <div class="col-sm-10">
+                                        <select id="kategori_id" class="form-control" name="kategori_id">
+                                            <option value="0">Kategori Seçilmedi</option>
+                                            @foreach (var item in kategoriler)
+                                            {
+                                                if (item.UST_KATEGORI_ID == 0)
+                                                {
+                                                    <option value="@item.ID">@item.KATEGORI_ADI</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@item.ID">@kategoriler.Where(f => f.ID == item.UST_KATEGORI_ID).First().KATEGORI_ADI >  @item.KATEGORI_ADI</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                                <div id="div_ust_menu" class="form-group">
+                                    <label for="phone" class="col-sm-2 control-label">Üst Menüde Görünsün <br /></label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" id="ust_menu" name="ust_menu">
+                                            <option value="True">Evet</option>
+                                            <option selected="selected" value="False">Hayır</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                        <div class="form-group">
+                                            <label for="phone" class="col-sm-2 control-label">Durum<br /></label>
+                                            <div class="col-md-10">
+                                                <select id="durum" class="form-control" name="durum">
+                                                    <option value="True">Aktif</option>
+                                                    <option value="False">Pasif</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone" class="col-sm-2 control-label">Sıra No<br /></label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="sira_no" name="sira_no" value="10" class="form-control input1">
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                        </div>
+                        <div class="gallery-buttons bottom-30px">
+                            <button type="submit" class="btn btn-primary btn-md"><i class="fa fa-picture-o"></i> Kaydet</button>
+                        </div>
+                    </form>
+               
+
+            </div>
+        </div>
+    </div>
+
+ 
+<script type="text/javascript">
+    $(function () {
+        $(".input1").keyup(function () {
+            if (this.value.match(/[^0-9]/g)) {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
